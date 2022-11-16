@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.databaseconnection.DBConnection;
+
 
 public class ShowQuestions {
 	static Connection con=DBConnection.getDBConnection();
@@ -22,7 +24,6 @@ public class ShowQuestions {
 		int checkAnswer=0;
 		Scanner sc=new Scanner(System.in);
 
-		//System.out.println(al);
 
 		try {
 			pst=con.prepareStatement("Select questions,answer from questionset where qid='"+al.get(index)+"'  ");
@@ -53,7 +54,9 @@ public class ShowQuestions {
 		j++;
 		for(int i=0;i<s1.length;i++) {
 
-			System.out.println("        "+s1[i]);
+			System.out.println(s1[i]);
+			System.out.println("\t");
+			System.out.print("\t");
 		}
 
 
@@ -62,6 +65,7 @@ public class ShowQuestions {
 
 		//enter answer choice
 		int ans=sc.nextInt();
+		System.out.println();
 
 		if(ans==checkAnswer) {
 			marks++;
@@ -75,6 +79,7 @@ public class ShowQuestions {
 
 		//insert marks into table
 		if(id!=tempId) {
+			System.out.println("Your Score is "+marks);
 			try {
 				pst=con.prepareStatement("insert into marks values (?,?,?)");
 

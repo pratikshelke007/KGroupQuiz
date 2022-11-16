@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import com.databaseconnection.DBConnection;
 
 public class InsertStudent {
 
@@ -29,7 +30,7 @@ public class InsertStudent {
 		}
 
 		list.removeAll(list);
-		System.out.println((list.size()+1)+" Student Registered Sucessfully!\n");
+		System.out.println("\t"+"Student Registered Sucessfully!\n");
 	}
 
 
